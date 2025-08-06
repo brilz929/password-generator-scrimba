@@ -8,10 +8,13 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo">PassGen</div>
+        <div class="logo">PW-Generator</div>
         <div class="theme-toggle">
             <input type="checkbox" id="theme-switch">
-            <label class="toggle-slider" for="theme-switch"></label>
+            <label class="toggle-slider" for="theme-switch">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
         </div>
     </header>
 
@@ -21,8 +24,8 @@
 
         <div class="options">
             <div class="option-item">
-                <label for="length">Password Length</label>
-                <input type="number" id="length" min="8" max="50" value="16">
+                <label for="length">Password Length (8-32)</label>
+                <input type="number" id="length" min="8" max="32" placeholder="Enter Password Length">
             </div>
             
             <div class="checkbox-group">
@@ -46,14 +49,9 @@
         </div>
 
         <button class="generate-btn" id="generateBtn">Generate passwords</button>
+        <button class="reset-btn" id="resetBtn">Reset</button>
 
-        <div class="passwords-container" id="passwordsContainer">
-            <!-- Password items will be dynamically added here -->
-            <div class="password-item">
-                <span class="password-text">Click generate to create passwords</span>
-                <button class="copy-btn" data-password="">Copy</button>
-            </div>
-        </div>
+        <div class="passwords-container" id="passwordsContainer"></div>
     </main>
 
     <script src="index.js"></script>
