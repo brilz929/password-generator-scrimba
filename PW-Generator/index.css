@@ -372,12 +372,12 @@ h1 {
     }
 
     .sun-icon {
-        left: 6px;
+        left: 0.3rem;
         opacity: 1;
     }
     
     .moon-icon {
-        right: 6px;
+        right: 0.3rem;
         opacity: 0;
     }
 
