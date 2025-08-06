@@ -343,7 +343,6 @@ h1 {
 /* === RESPONSIVE DESIGN === */
 @media (max-width: 600px) {
     .header {
-        /* flex-direction: column; */
         gap: 20px;
     }
 
@@ -371,4 +370,15 @@ h1 {
         padding: 6px 12px;
         font-size: 12px;
     }
+
+    .sun-icon {
+        left: 6px;
+        opacity: 1;
+    }
+    
+    .moon-icon {
+        right: 6px;
+        opacity: 0;
+    }
+
 }
