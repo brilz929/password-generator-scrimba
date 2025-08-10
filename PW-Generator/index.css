@@ -113,10 +113,14 @@ input:checked + .toggle-slider::before {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    transition: opacity 0.3s, transform 0.4s;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
     font-size: 1.2rem;
     color: white;
     user-select: none;
+    transition: opacity 0.3s, transform 0.4s;
 }
 
 .sun-icon {
@@ -234,7 +238,8 @@ h1 {
 
 /* === PASSWORD DISPLAY === */
 .passwords-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 15px;
 }
 
@@ -372,13 +377,11 @@ h1 {
     }
 
     .sun-icon {
-        left: 0.3rem;
-        opacity: 1;
+        left: 5px;
     }
     
     .moon-icon {
-        right: 0.3rem;
-        opacity: 0;
+        right: 5px;
     }
 
 }

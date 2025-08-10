@@ -43,7 +43,7 @@ function randomChar(charSet) {
 }
 
 function generateRandomPassword() {
-    let passwordLength = lengthInput.value;
+    let passwordLength = parseInt(lengthInput.value, 10);
     
     
     // Check if length is actually entered
@@ -80,18 +80,28 @@ function generateRandomPassword() {
 function createPasswordElement(password) {
     const passwordItem = document.createElement('div');
     passwordItem.className = 'password-item';
-    passwordItem.innerHTML = `
-        <span class="password-text">${password}</span>
-        <button class="copy-btn" data-password="${password}">Copy</button>`;
+    
+    const span = document.createElement('span');
+    span.className = 'password-text';
+    span.textContent = password;
 
-    passwordItem.querySelector('.copy-btn').addEventListener('click', function(e) {
-        const passwordToCopy = e.target.dataset.password;
-        navigator.clipboard.writeText(passwordToCopy);
-        e.target.textContent = 'Copied!';
-        setTimeout(() => {
-            e.target.textContent = 'Copy';
-        }, 2000);
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'copy-btn';
+    copyBtn.type = 'button';
+    copyBtn.textContent = 'Copy';
+
+    copyBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(password).then(() => {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy';
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
     });
+    passwordItem.appendChild(span);
+    passwordItem.appendChild(copyBtn);
 
     return passwordItem;
 }
